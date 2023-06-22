@@ -2,3 +2,9 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.welcome-text {
+    font-size: 23px;
+    margin: 10px;
+    text-align: center;
+}
