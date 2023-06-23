@@ -21,6 +21,17 @@ app.get("/league/:id", async (req, res) => {
     }
 })
 
+// get recent videos for home page
+app.get("/home", async (req, res) => {
+    try {
+        const videos = await axios.get(`https://www.scorebat.com/video-api/v3/feed/?token=${process.env.ACCESS_TOKEN}`)
+        const data = videos.data.response;
+        res.json(data)
+    } catch (err) {
+        console.error(err)
+    }
+})
+
 // Credit for the signup and login endpoint: Ania Kubow
 // signup endpoint
 app.post('/signup', async (req, res) => {
