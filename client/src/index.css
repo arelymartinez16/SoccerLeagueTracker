@@ -24,9 +24,12 @@ body {
 .videos {
     padding: 1%;
     margin: 1%;
-    width: 300px; 
+    width: 300px;
     text-align: center;
-    box-sizing: border-box;
+}
+
+.videos video {
+    width: 100%;
 }
 
 /* Auth */
