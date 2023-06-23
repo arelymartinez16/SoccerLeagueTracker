@@ -34,11 +34,13 @@ function App() {
       <h2 className="sub-title">Latest News & Highlights</h2> </>}
       {recentVideos && recentVideos.map(video => (
         <div className='video-container' key={video.videos.id}>
-          <h3>{video.title}</h3>
-          <p>{video.competition}</p>
-          <video controls>
-            {video.videos.embed}
-          </video>
+          <div className="videos">
+            <h3>{video.title}</h3>
+            <p>{video.competition}</p>
+            <video controls>
+              {video.videos.embed}
+            </video>
+          </div>
         </div>
       ))}
     </div>
