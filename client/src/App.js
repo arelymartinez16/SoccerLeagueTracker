@@ -6,7 +6,7 @@ import { useCookies } from 'react-cookie';
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null)
   // const authToken = cookies.AuthToken
-  const authToken = true;
+  const authToken = false;
   const userEmail = cookies.Email
   const [recentVideos, setRecentVideos] = useState(null)
 
@@ -32,7 +32,7 @@ function App() {
       {!authToken && <Auth />}
       {authToken && <> <Navbar />
       <h1 className="welcome-text">Welcome back</h1>
-      <h2 className="sub-title">Latest News & Highlights</h2> </>}
+      <h2 className="sub-title">Latest News & Highlights</h2> 
       {recentVideos && recentVideos.map(video => (
         <div className='video-container' key={video.matchviewUrl}>
           <div className="videos">
@@ -47,7 +47,7 @@ function App() {
             ))}
           </div>
         </div>
-      ))}
+      ))}</>}
     </div>
   );
 }
