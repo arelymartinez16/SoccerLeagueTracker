@@ -28,10 +28,6 @@ body {
     text-align: center;
 }
 
-.videos video {
-    width: 100%;
-}
-
 /* Auth */
 input {
     margin: 11px 0;
