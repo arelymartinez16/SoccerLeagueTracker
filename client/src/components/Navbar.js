@@ -17,9 +17,14 @@ const Navbar = () => {
                             Soccer Leagues
                         </a>
                         <ul className="dropdown-menu">
-                            <li><a className="dropdown-item" href="">Action</a></li>
-                            <li><a className="dropdown-item" href="">Another action</a></li>
-                            <li><a className="dropdown-item" href="">Something else here</a></li>
+                            <li><a className="dropdown-item" href="">Bundesliga</a></li>
+                            <li><a className="dropdown-item" href="">Eredivisie</a></li>
+                            <li><a className="dropdown-item" href="">La Liga</a></li>
+                            <li><a className="dropdown-item" href="">Ligue 1</a></li>
+                            <li><a className="dropdown-item" href="">Liga MX</a></li>
+                            <li><a className="dropdown-item" href="">Premier League</a></li>
+                            <li><a className="dropdown-item" href="">Primeira Liga</a></li>
+                            <li><a className="dropdown-item" href="">Serie A</a></li>
                         </ul>
                     </li>
                 </ul>
