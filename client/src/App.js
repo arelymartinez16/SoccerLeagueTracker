@@ -5,8 +5,8 @@ import { useCookies } from 'react-cookie';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null)
-  // const authToken = cookies.AuthToken
-  const authToken = false;
+  const authToken = cookies.AuthToken
+  // const authToken = false;
   const userEmail = cookies.Email
   const [recentVideos, setRecentVideos] = useState(null)
 
@@ -21,6 +21,12 @@ function App() {
     }
   }
 
+  // displays Auth component when the user signs out
+  const signOut = () => {
+    removeCookie("Email")
+    removeCookie("AuthToken")
+  }
+
   useEffect(() => {
     if (authToken) {
       getRecentVideos()
@@ -31,7 +37,9 @@ function App() {
     <div className="App">
       {!authToken && <Auth />}
       {authToken && <> <Navbar />
-      <h1 className="welcome-text">Welcome back</h1>
+      <button className='sign-out-button' style={{float: "right"}} onClick={signOut}>Sign out</button>
+      <br />
+      <h1 className="welcome-text">Welcome back {userEmail}</h1>
       <h2 className="sub-title">Latest News & Highlights</h2> 
       {recentVideos && recentVideos.map(video => (
         <div className='video-container' key={video.matchviewUrl}>

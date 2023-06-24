@@ -3,6 +3,16 @@ body {
     padding: 0;
 }
 
+.sign-out-button {
+    border-radius: 12px;
+    padding: 5px 10px;
+    border: none;
+}
+
+.sign-out-button:hover {
+    background-color: rgb(196, 202, 207);
+}
+
 .welcome-text {
     font-size: 23px;
     margin: 10px;
