@@ -40,7 +40,7 @@ function App() {
       <button className='sign-out-button' style={{float: "right"}} onClick={signOut}>Sign out</button>
       <br />
       <h1 className="welcome-text">Welcome back {userEmail}</h1>
-      <h2 className="sub-title">Latest News & Highlights</h2> 
+      <h2 className="sub-title">Latest Highlights from All Over the World</h2> 
       {recentVideos && recentVideos.map(video => (
         <div className='video-container' key={video.matchviewUrl}>
           <div className="videos">
