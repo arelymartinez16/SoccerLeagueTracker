@@ -46,7 +46,6 @@ const Navbar = () => {
                 </div>
             </nav>
             <Routes>
-                <Route path="/:id" element={<LeagueDetails />}/>
             </Routes>
         </>
     )

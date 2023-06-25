@@ -4,6 +4,7 @@ import Auth from './components/Auth';
 import { useCookies } from 'react-cookie';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
+import LeagueDetails from './components/LeagueDetails';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null)
@@ -43,6 +44,7 @@ function App() {
       <br />
       <Routes>
         <Route path="/" element={<Home />}/>
+        <Route path="/:id" element={<LeagueDetails />}/>
       </Routes>
       {/* <h1 className="welcome-text">Welcome back {userEmail}</h1>
       <h2 className="sub-title">Latest Highlights from All Over the World</h2> 
