@@ -11,6 +11,7 @@ const axios = require('axios')
 app.use(cors())
 app.use(express.json())
 
+// try to show league standings from the 2022-2023 season
 app.get("/league/:id", async (req, res) => {
     const { id } = req.params;
     try {
