@@ -2,24 +2,26 @@ import Navbar from './components/Navbar';
 import { useState, useEffect } from "react"
 import Auth from './components/Auth';
 import { useCookies } from 'react-cookie';
+import { Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null)
   const authToken = cookies.AuthToken
   // const authToken = false;
-  const userEmail = cookies.Email
-  const [recentVideos, setRecentVideos] = useState(null)
+  // const userEmail = cookies.Email
+  // const [recentVideos, setRecentVideos] = useState(null)
 
-  const getRecentVideos = async () => {
-    try {
-      const response = await fetch("http://localhost:8000/home");
-      const json = await response.json()
-      console.log(json)
-      setRecentVideos(json)
-    } catch (err) {
-      console.error(err)
-    }
-  }
+  // const getRecentVideos = async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:8000/home");
+  //     const json = await response.json()
+  //     console.log(json)
+  //     setRecentVideos(json)
+  //   } catch (err) {
+  //     console.error(err)
+  //   }
+  // }
 
   // displays Auth component when the user signs out
   const signOut = () => {
@@ -27,11 +29,11 @@ function App() {
     removeCookie("AuthToken")
   }
 
-  useEffect(() => {
-    if (authToken) {
-      getRecentVideos()
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (authToken) {
+  //     getRecentVideos()
+  //   }
+  // }, [])
 
   return (
     <div className="App">
@@ -39,7 +41,10 @@ function App() {
       {authToken && <> <Navbar />
       <button className='sign-out-button' style={{float: "right"}} onClick={signOut}>Sign out</button>
       <br />
-      <h1 className="welcome-text">Welcome back {userEmail}</h1>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+      </Routes>
+      {/* <h1 className="welcome-text">Welcome back {userEmail}</h1>
       <h2 className="sub-title">Latest Highlights from All Over the World</h2> 
       {recentVideos && recentVideos.map(video => (
         <div className='video-container' key={video.matchviewUrl}>
@@ -55,7 +60,7 @@ function App() {
             ))}
           </div>
         </div>
-      ))}</>}
+            ))} */}</>}
     </div>
   );
 }

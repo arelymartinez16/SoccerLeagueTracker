@@ -15,7 +15,8 @@ const Navbar = () => {
                     <span className="navbar-brand mb-0 h1">Soccer League Tracker</span>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Home</a>
+                            {/* <a className="nav-link active" aria-current="page" href="">Home</a>*/}
+                            <Link className="nav-link active" to="/">Home</Link>
                             {/* <Link className="nav-link active" aria-current="page" to="/">Home</Link> */}
                         </li>
                         <li className="nav-item dropdown">
