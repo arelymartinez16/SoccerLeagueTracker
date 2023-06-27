@@ -15,12 +15,24 @@ app.use(express.json())
 app.get("/league/:id", async (req, res) => {
     const { id } = req.params;
     try {
-        const standings = await axios.get(`https://api-football-standings.azharimm.dev/leagues/${id}/standings?season=2022`);
-        res.json(standings.data);
+        const standing = await axios.get(`https://api-football-standings.azharimm.dev/leagues/${id}/standings?season=2022&sort=asc`);
+        const data = standing.data.data.standings
+        res.json(data);
     } catch (err) {
         console.error(err)
     }
-})
+}) 
+
+// get recent news from each league
+/* app.get("/news/:id", async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const recentNews = await axios.get()
+    } catch (err) {
+        console.error(err)
+    }
+}) */
 
 // get recent videos for home page
 app.get("/home", async (req, res) => {
