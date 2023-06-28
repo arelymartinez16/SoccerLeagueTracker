@@ -81,3 +81,26 @@ input {
     padding: 10px;
     color: rgb(35, 38, 47);
 }
+
+/* League Details */
+.standings-container {
+    float: left;
+}
+
+.tables {
+    text-transform: uppercase;
+    border-collapse: collapse;
+}
+
+.tables th {
+    background-color: #000;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.tables th, .tables td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}

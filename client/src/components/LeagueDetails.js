@@ -30,27 +30,38 @@ const LeagueDetails = () => {
         <>
             <h1>League {id}</h1>
             <h2>Standings</h2>
-            {standingss && standingss.map(standing => (
-                <div className="standings-container" key={standing.team.id}>
-                    <p>{standing.team.name}</p>
-                    {standing.stats.map(stat => (
-                        <div>
-                            <p>{stat.name}</p>
-                            <p>{stat.displayValue}</p>
-                        </div>
-                    ))}
-                </div>
-            ))}
-            {/* standingss && standingss.map(standing => (
-                <div key={standing++}>
-                    {standing.standings.map(stand => (
-                        <div key={stand.id}>
-                            <p>{stand.id}</p>
-                        </div>
-                    ))}
-                </div>
-                    )) */}
-            
+            <div className="standings-container">
+                <table className="tables">
+                    <thead>
+                        <tr>
+                            <th>Team Name</th>
+                            <th>GP</th>
+                            <th>L</th>
+                            <th>GD</th>
+                            <th>Pts</th>
+                            <th>GA</th>
+                            <th>GF</th>
+                            <th>D</th>
+                            <th>W</th>
+                            <th>PD</th>
+                            <th>PPG</th>
+                            <th>Rank</th>
+                            <th>RC</th>
+                            <th>Overall Record</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {standingss && standingss.map(stand => (
+                            <tr key={stand.team.id}>
+                                <td>{stand.team.name}</td>
+                                {stand.stats.map((stat, index) => ( 
+                                    <td key={index}>{stat.displayValue}</td>
+                                ))} 
+                            </tr> 
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </>
     )
 }
