@@ -24,15 +24,25 @@ app.get("/league/:id", async (req, res) => {
 }) 
 
 // get recent news from each league
-/* app.get("/news/:id", async (req, res) => {
+app.get("/news/:id", async (req, res) => {
     const { id } = req.params;
 
+    const options = {
+        method: 'GET',
+        url: `https://football98.p.rapidapi.com/${id}/news`,
+        headers: {
+          'X-RapidAPI-Key': `${process.env.API_KEY}`,
+          'X-RapidAPI-Host': 'football98.p.rapidapi.com'
+        }
+      };
+
     try {
-        const recentNews = await axios.get()
+        const recentNews = await axios.get(options)
+        res.json(recentNews.data)
     } catch (err) {
         console.error(err)
     }
-}) */
+}) 
 
 // get recent videos for home page
 app.get("/home", async (req, res) => {
@@ -69,7 +79,7 @@ app.post('/login', async (req, res) => {
     try {
         const users = await pool.query("SELECT * FROM users WHERE email = $1", [email])
         if (!users.rows.length) {
-            return res.json({ detail: "User does not exist;" })
+            return res.json({ detail: "User does not exist." })
         }
         
         const success = await bcrypt.compare(password, users.rows[0].hashed_password)
