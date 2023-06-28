@@ -62,6 +62,9 @@ const LeagueDetails = () => {
                     </tbody>
                 </table>
             </div>
+            {/* <div className="news-container">
+                <h2 className="title-news" style={{color: "white"}}>Recent News</h2>
+                                </div> */}
         </>
     )
 }
