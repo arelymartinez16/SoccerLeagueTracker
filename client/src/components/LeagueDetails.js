@@ -78,7 +78,7 @@ const LeagueDetails = () => {
         <>
             <h1>League {id}</h1>
             <div className="standings-container">
-                <h2>Standings</h2>
+                <h2 style={{textAlign: "center"}}>Standings</h2>
                 <table className="tables">
                     <thead>
                         <tr>
@@ -110,7 +110,8 @@ const LeagueDetails = () => {
                     </tbody>
                 </table>
             </div>
-            <div className="news-container" style={{float: "right"}}>
+            <br />
+            <div className="news-container">
                 <h2 className="title-news" style={{color: "black"}}>Recent News</h2>
                 {news && news.map((recentNew, index) => (
                     <div className="news-card" key={index}>
