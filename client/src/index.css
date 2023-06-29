@@ -40,6 +40,14 @@ body {
     text-align: center;
 }
 
+/* Navbar */
+/* .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+} */
+
 /* Auth */
 input {
     margin: 11px 0;
@@ -91,12 +99,14 @@ input {
     align-items: center;
     margin-top: 20px;
     flex-wrap: wrap;
+    overflow-x: auto;
 }
 
-.tables table {
+.tables {
     text-transform: uppercase;
     border-collapse: collapse;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .tables th {
@@ -127,4 +137,16 @@ input {
     padding: 1%;
     margin: 1%;
     width: 90%;
+}
+
+/* Media queries */
+/* for mobile devices */
+@media screen and (max-width: 480px) and (min-width: 320px) {
+    .navbar {
+        width: 100%;
+    }
+
+    .tables, .news-card {
+        font-size: 10px;
+    }
 }
