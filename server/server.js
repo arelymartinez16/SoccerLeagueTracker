@@ -24,12 +24,12 @@ app.get("/league/:id", async (req, res) => {
 }) 
 
 // get recent news from each league
-app.get("/news/:id", async (req, res) => {
-    const { id } = req.params;
+app.get("/news/:league", async (req, res) => {
+    const { league } = req.params;
 
     const options = {
         method: 'GET',
-        url: `https://football98.p.rapidapi.com/${id}/news`,
+        url: `https://football98.p.rapidapi.com/${league}/news`,
         headers: {
           'X-RapidAPI-Key': `${process.env.API_KEY}`,
           'X-RapidAPI-Host': 'football98.p.rapidapi.com'
@@ -37,7 +37,7 @@ app.get("/news/:id", async (req, res) => {
       };
 
     try {
-        const recentNews = await axios.get(options)
+        const recentNews = await axios.request(options)
         res.json(recentNews.data)
     } catch (err) {
         console.error(err)

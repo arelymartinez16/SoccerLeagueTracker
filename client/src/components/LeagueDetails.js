@@ -7,6 +7,7 @@ const LeagueDetails = () => {
     const { id } = useParams();
 
     const [standingss, setStandings] = useState(null)
+    const [news, setNews] = useState(null)
     const [cookies, setCookie, removeCookie] = useCookies(null)
     const authToken = cookies.AuthToken
 
@@ -20,17 +21,64 @@ const LeagueDetails = () => {
         }
     } 
 
-    useEffect( () => {
-        if (authToken) {
-            displayStandings()
+    const getLeagueName = (id) => {
+        let leagueName = "";
+
+        if (id === "eng.1") {
+            leagueName = "premierleague"
         }
+        else if (id === "mex.1") {
+            leagueName = "ligabbvamxclausura"
+        }
+        else if (id === "ned.1") {
+            leagueName = "eredivisie"
+        }
+        else if (id === "ita.1") {
+            leagueName = "seriea"
+        }
+        else if (id === "fra.1") {
+            leagueName = "ligue1ubereats"
+        }
+        else if (id === "ger.1") {
+            leagueName = "bundesliga"
+        }
+        else if (id === "esp.1") {
+            leagueName = "laliga"
+        }
+        else if (id === "por.1") {
+            leagueName = "ligaportugal"
+        }
+
+        return {name: leagueName};
+    }
+
+    const displayNews = async () => {
+        try {
+            const { name } = getLeagueName(id)
+            const recentNews = await fetch(`http://localhost:8000/news/${name}`)
+            const json = await recentNews.json()
+            setNews(json)
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+    useEffect( () => {
+        const fetchData = async () => {
+            if (authToken) {
+                await displayStandings()
+                await displayNews()
+            }
+        }
+
+        fetchData()
     }, []) 
 
     return (
         <>
             <h1>League {id}</h1>
-            <h2>Standings</h2>
             <div className="standings-container">
+                <h2>Standings</h2>
                 <table className="tables">
                     <thead>
                         <tr>
@@ -62,9 +110,16 @@ const LeagueDetails = () => {
                     </tbody>
                 </table>
             </div>
-            {/* <div className="news-container">
-                <h2 className="title-news" style={{color: "white"}}>Recent News</h2>
-                                </div> */}
+            <div className="news-container" style={{float: "right"}}>
+                <h2 className="title-news" style={{color: "black"}}>Recent News</h2>
+                {news && news.map((recentNew, index) => (
+                    <div className="news-card" key={index}>
+                        <h3>{recentNew.Title}</h3>
+                        <a href={recentNew.NewsLink} target="_blank">{recentNew.NewsLink}</a>
+                        <p>{recentNew.PublisherDate}</p>
+                    </div>
+                ))}
+            </div> 
         </>
     )
 }
