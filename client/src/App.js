@@ -10,20 +10,6 @@ import Livescores from './components/Livescores';
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null)
   const authToken = cookies.AuthToken
-  // const authToken = false;
-  // const userEmail = cookies.Email
-  // const [recentVideos, setRecentVideos] = useState(null)
-
-  // const getRecentVideos = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:8000/home");
-  //     const json = await response.json()
-  //     console.log(json)
-  //     setRecentVideos(json)
-  //   } catch (err) {
-  //     console.error(err)
-  //   }
-  // }
 
   // displays Auth component when the user signs out
   const signOut = () => {
@@ -48,23 +34,7 @@ function App() {
         <Route path="/:id" element={<LeagueDetails />}/>
         <Route path="/livescores" element={<Livescores />}/>
       </Routes>
-      {/* <h1 className="welcome-text">Welcome back {userEmail}</h1>
-      <h2 className="sub-title">Latest Highlights from All Over the World</h2> 
-      {recentVideos && recentVideos.map(video => (
-        <div className='video-container' key={video.matchviewUrl}>
-          <div className="videos">
-            <h3>{video.title}</h3>
-            <p>{video.competition}</p>
-            {video.videos.map((videoDetails) => (
-              <div key={videoDetails.id} style={{width: "100%", height: "0px", position: "relative", paddingBottom: "56.250%", background: "#000"}}>
-              <iframe title={videoDetails.id} src={videoDetails.embed?.substring(videoDetails.embed.indexOf("https"), videoDetails.embed.indexOf("fd'"))} width="100%" allowFullScreen style={{width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden"}}>
-
-              </iframe>
-              </div>
-            ))}
-          </div>
-        </div>
-            ))} */}</>}
+      </>}
     </div>
   );
 }
