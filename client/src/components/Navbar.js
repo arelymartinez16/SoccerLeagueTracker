@@ -24,14 +24,14 @@ const Navbar = () => {
                                     Soccer Leagues
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to="/ger.1">Bundesliga</Link></li> 
-                                    <li><Link className="dropdown-item" to="/ned.1">Eredivisie</Link></li>
-                                    <li><Link className="dropdown-item" to="/esp.1">La Liga</Link></li>
-                                    <li><Link className="dropdown-item" to="/fra.1">Ligue 1</Link></li>
-                                    <li><Link className="dropdown-item" to="/mex.1">Liga MX</Link></li>
-                                    <li><Link className="dropdown-item" to="/eng.1">Premier League</Link></li>
-                                    <li><Link className="dropdown-item" to="/por.1">Primeira Liga</Link></li>
-                                    <li><Link className="dropdown-item" to="/ita.1">Serie A</Link></li>
+                                    <li><Link className="dropdown-item" reloadDocument to="/ger.1">Bundesliga</Link></li> 
+                                    <li><Link className="dropdown-item" reloadDocument to="/ned.1">Eredivisie</Link></li>
+                                    <li><Link className="dropdown-item" reloadDocument to="/esp.1">La Liga</Link></li>
+                                    <li><Link className="dropdown-item" reloadDocument to="/fra.1">Ligue 1</Link></li>
+                                    <li><Link className="dropdown-item" reloadDocument to="/mex.1">Liga MX</Link></li>
+                                    <li><Link className="dropdown-item" reloadDocument to="/eng.1">Premier League</Link></li>
+                                    <li><Link className="dropdown-item" reloadDocument to="/por.1">Primeira Liga</Link></li>
+                                    <li><Link className="dropdown-item" reloadDocument to="/ita.1">Serie A</Link></li>
                                 </ul>
                             </li>
                         </ul>
