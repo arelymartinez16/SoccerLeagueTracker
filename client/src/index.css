@@ -32,6 +32,8 @@ body {
 
 /* made all the elements in separate lines */
 .videos {
+    background-color: #bcc6d4;
+    border-radius: 7px;
     padding: 1%;
     margin: 1%;
     width: 300px;

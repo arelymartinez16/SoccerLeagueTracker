@@ -33,7 +33,7 @@ const Home = () => {
                         <h3>{video.title}</h3>
                         <p>{video.competition}</p>
                         {video.videos.map((videoDetails) => (
-                            <div key={videoDetails.id} style={{width: "100%", height: "0px", position: "relative", paddingBottom: "56.250%", background: "#000"}}>
+                            <div className="videos" key={videoDetails.id} style={{width: "100%", height: "0px", position: "relative", paddingBottom: "56.250%", background: "#000"}}>
                                 <iframe title={videoDetails.id} src={videoDetails.embed?.substring(videoDetails.embed.indexOf("https"), videoDetails.embed.indexOf("fd'"))} width="100%" allowFullScreen style={{width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden"}}>
 
                                 </iframe>
